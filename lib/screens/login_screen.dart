@@ -13,7 +13,7 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
-  FirebaseAuth _auth;
+  final _auth = FirebaseAuth.instance;
   bool showSpinner = false;
   String email;
   String password;
@@ -83,6 +83,10 @@ class _LoginScreenState extends State<LoginScreen> {
                     });
                   } catch(e) {
                     print(e);
+                    setState(() {
+                      showSpinner = false;
+                    });
+                    Navigator.pop(context);
                   }
                 },
                 title: 'Log In',

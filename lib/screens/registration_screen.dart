@@ -83,6 +83,10 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                     });
                   } catch(e) {
                     print(e);
+                    setState(() {
+                      showSpinner = false;
+                    });
+                    Navigator.pop(context);
                   }
                 },
                 title: 'Register',
